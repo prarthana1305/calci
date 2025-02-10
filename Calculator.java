@@ -17,6 +17,11 @@ public class Calculator {
 
             if (ch == ' ') continue;
 
+            if (Character.isLetter(ch)) { // Edge case: Detect alphabets
+                System.out.println("Error: Invalid character '" + ch + "' in expression.");
+                return -1;
+            }
+
 
             if (Character.isDigit(ch)) {
                 int num = 0;
