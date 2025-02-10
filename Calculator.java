@@ -2,6 +2,12 @@ import java.util.Stack;
 
 public class Calculator {
     public int evaluate(String expression) {
+        if (expression.trim().isEmpty()) {
+            // Edge case: Empty or only-whitespace input
+            System.out.println("Error: Expression cannot be empty or just spaces.");
+            return -1;
+        }
+
         Stack<Integer> values = new Stack<>();
         Stack<Character> operators = new Stack<>();
 
