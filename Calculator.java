@@ -52,4 +52,15 @@ public class Calculator {
     private int precedence(char op) {
         return (op == '+' || op == '-') ? 1 : (op == '*' || op == '/') ? 2 : 0;
     }
+    // Apply operation on two numbers
+    private int applyOp(char op, int b, int a) {
+        switch (op) {
+            case '+': return a + b;
+            case '-': return a - b;
+            case '*': return a * b;
+            case '/': return (b == 0) ? 0 : a / b; // Prevent division by zero
+        }
+        return 0;
+    }
+
 }
