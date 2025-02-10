@@ -48,4 +48,8 @@ public class Calculator {
 
         return values.pop();
     }
+
+    private int precedence(char op) {
+        return (op == '+' || op == '-') ? 1 : (op == '*' || op == '/') ? 2 : 0;
+    }
 }
