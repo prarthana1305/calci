@@ -2,8 +2,17 @@ import java.util.Stack;
 
 public class Calculator {
     public int evaluate(String expression) {
+
+        if (expression.trim().isEmpty()) {
+            // Edge case: Empty or only-whitespace input
+            System.out.println("Error: Expression cannot be empty or just spaces.");
+            return -1;
+        }
+
         Stack<Integer> values = new Stack<>();
         Stack<Character> operators = new Stack<>();
+
+
 
         for (int i = 0; i < expression.length(); i++) {
             char ch = expression.charAt(i);
@@ -11,6 +20,10 @@ public class Calculator {
 
             if (ch == ' ') continue;
 
+            if (Character.isLetter(ch)) { // Edge case: Detect alphabets
+                System.out.println("Error: Invalid character '" + ch + "' in expression.");
+                return -1;
+            }
 
             if (Character.isDigit(ch)) {
                 int num = 0;
